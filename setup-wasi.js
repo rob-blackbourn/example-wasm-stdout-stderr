@@ -13,15 +13,7 @@ async function setupWasi(fileName) {
 
   // Instantiate the wasm module.
   const res = await WebAssembly.instantiate(buf, {
-    wasi_snapshot_preview1: wasi,
-    env: {
-      // This function is exported to the web assembly.
-      consoleLog: function(ptr, length) {
-        // This converts the pointer to a string and frees he memory.
-        const string = wasi.wasiMemoryManager.convertToString(ptr, length)
-        console.log(string)
-      }
-    }
+    wasi_snapshot_preview1: wasi
   })
 
   // Initialise the wasi instance
