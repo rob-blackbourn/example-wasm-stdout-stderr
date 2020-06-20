@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <locale.h>
 
-extern void consoleLog(char* ptr, int length);
-
 int is_locale_initialised = 0;
 
 static void initLocale()
